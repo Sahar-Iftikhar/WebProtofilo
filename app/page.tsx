@@ -17,7 +17,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-gray-200 hidden md:block">
-          Hi, I'm Sahar Iftikhar I am a dedicated Bachelor of Science in Computer Science (BSCS) student with a passion for front-end development. Currently, I'm enrolled in the GIAIC program, where I am in my second quarter. Additionally, I am enhancing my skills through a web development course offered by NAVVTAC, which I am also taking at Karachi University.
+          Hi, I'm Sahar Iftikhar I am a dedicated Bachelor of Science in Computer Science (BSCS) student with a passion for front-end development. Currently, I&apos;m enrolled in the GIAIC program, where I am in my second quarter. Additionally, I am enhancing my skills through a web development course offered by NAVVTAC, which I am also taking at Karachi University.
           </p>
           <div className="flex-col md:flex-row hidden md:flex gap-5">
             <Link

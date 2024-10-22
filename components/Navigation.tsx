@@ -1,4 +1,5 @@
 "use client";
+
 import { NavLinks } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -6,33 +7,34 @@ import React, { useEffect, useState } from "react";
 import Transition from "./Transition";
 
 const Navigation = () => {
-  const [isRouting, setisRouting] = useState(false);
+  const [isRouting, setIsRouting] = useState(false);
   const path = usePathname();
   const [prevPath, setPrevPath] = useState("/");
 
+  // Watch both 'path' and 'prevPath' for changes
   useEffect(() => {
     if (prevPath !== path) {
-      setisRouting(true);
+      setIsRouting(true);
     }
   }, [path, prevPath]);
 
   useEffect(() => {
     if (isRouting) {
-      setPrevPath(path);
+      setPrevPath(path); // Update prevPath after routing change
       const timeout = setTimeout(() => {
-        setisRouting(false);
+        setIsRouting(false); // Stop routing after timeout
       }, 1200);
 
-      return () => clearTimeout(timeout);
+      return () => clearTimeout(timeout); // Cleanup timeout on unmount
     }
-  }, [isRouting]);
+  }, [isRouting, path]);
+
   return (
     <div
       style={{ left: "20%" }}
       className="absolute z-[50] -bottom-20 w-[50%] md:w-[20%] max-h-[150px] rounded-full flex justify-between items-center border bg-black border-white px-4 py-7"
     >
-
-      {isRouting && <Transition/>}
+      {isRouting && <Transition />}
       {NavLinks.map((nav) => (
         <Link key={nav.name} href={nav.link} className="mb-16 pl-4 min-w-[20%]">
           <nav.icon
